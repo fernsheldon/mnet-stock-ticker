@@ -2,7 +2,7 @@ stockTickerApp.factory('stockDataStream', function($http) {
 
 
 
-  var _webSocket = new WebSocket("ws://stocks.mnet.website");
+  var _webSocket = new WebSocket("wss://stocks.mnet.website");
   var stockDataArray = [];
 
   _webSocket.onmessage = function(event) {

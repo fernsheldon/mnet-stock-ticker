@@ -1,1 +1,46 @@
-<p>This is the partial for view 1.</p>
+<div ng-controller="View1Ctrl as vm">
+
+  <div class="col-md-8 col-md-offset-2">
+    <table class="table table-striped">
+      <tr>
+        <th>TICKER</th>
+        <th>PRICE</th>
+        <th>LAST UPDATED</th>
+        <th>CHART</th>
+      </tr>
+      <tr ng-repeat="stock in vm.data">
+        <td class="col-md-3 tickerName">{{stock.name| uppercase}}</td>
+        <td class="col-md-4 {{stock.color}}">{{stock.price | currency :'$' : 2}}</td>
+        <td class="col-md-3">{{stock.timeString}}</td>
+        <td class="col-md-2"><i class="fa fa-bar-chart" ng-click="vm.updateChartView(stock)" data-toggle="modal" data-target="#myModal" aria-hidden="true"></i>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">{{vm.stockChoice.name| uppercase}} | PRICE: {{vm.stockChoice.price | currency :'$' : 2}}</h4>
+        </div>
+        <div class="modal-body">
+          <div class="col-md-10 col-md-offset-1">
+            <stock-chart id="highChart" title="vm.stockChoice.name" data="vm.stockChoice.price" dataHistory = "vm.stockChoice.priceHistory">Placeholder for pie chart</stock-chart>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.closeChart()">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

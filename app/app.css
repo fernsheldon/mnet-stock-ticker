@@ -1,5 +1,26 @@
 /* app css stylesheet */
 
+body{
+  font-family: 'Rubik', sans-serif;
+}
+
+th {
+    font-weight: normal;
+    text-align: center !important;
+    vertical-align: middle;
+}
+
+td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.table-striped tr {line-height: 2em;}
+
+.tickerName{
+  font-weight: 700;
+}
+
 .menu {
   list-style: none;
   border-bottom: 0.1em solid black;
@@ -22,4 +43,25 @@
 .menu > li + li:before {
   content: "|";
   padding-right: 0.3em;
+}
+
+.success{
+  background-color: #43A047;
+}
+
+
+@media (min-width: 768px){
+  .modal-dialog {
+      width: 800px;
+      height: 500px;
+      margin: 30px auto;
+  }
+  .modal-body {
+      width: 700px;
+      height: 500px;
+  }
+}
+
+.highcharts-container{
+  border: 1px solid black;
 }
